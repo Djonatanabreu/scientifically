@@ -1,0 +1,49 @@
+.cardContainer {
+  width: 40vw;
+  height: 14vw;
+  max-height: 200px;
+  display: flex;
+  justify-content: space-around;
+  border-style:solid;
+border-color: white;
+  border-width: 1px;
+}
+
+
+.imageBox {
+  width: 35%;
+  background-color: darkolivegreen;
+}
+
+.infoBox {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 60%;
+  align-items: center;
+}
+
+.basicInfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 50%;
+}
+
+.basicInfo span{
+  color: #A472AA;
+}
+
+.seenInfo span{
+ color: #48864A;
+ font-size: 13px;
+}
+.seenInfo p{
+ color: #B4D5E3;
+ font-size: 16px;
+}
+
+.infoBox p, h2{
+  margin: 0
+}
