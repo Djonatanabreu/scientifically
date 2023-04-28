@@ -2,7 +2,7 @@
 
 This project is a testing working on `ReactJS`, `Typescript` and `GraphQL`.
 
-In this project I created a Welcome Page for user interect when run the project, another page to list, filter and search all Rick and Morty API Characters.
+In this project, I created a Welcome Page for user interect when run the project and a Dashboard Page to list, filter and search all Rick and Morty API Characters.
 
 ## Getting Started
 
