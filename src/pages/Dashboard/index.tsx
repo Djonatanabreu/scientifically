@@ -9,9 +9,9 @@ import {
   IUpdatedCharacterUnit,
   UpdatedCharacterStatus,
 } from './types';
-import { Select } from '../../components/CardContainer/components/Select';
 import { selectData } from './_helpers/selectData';
-import { Input } from '../../components/CardContainer/components/Input';
+import { Input } from '../../components/Input';
+import { Select } from '../../components/Select';
 
 export const Dashboard = () => {
   const [page, setPage] = useState(1);
@@ -106,15 +106,17 @@ export const Dashboard = () => {
           <div>No Data</div>
         )}
       </div>
-      <button onClick={onGoPreviousPage} disabled={!minPageNumber}>
-        Previous
-      </button>
-      <p>
-        {page} - {data.characters.info.pages}
-      </p>
-      <button onClick={onGoNextPage} disabled={!maxPageNumber}>
-        Next
-      </button>
+      <div className={styles.pageCounterBox}>
+        <button onClick={onGoPreviousPage} disabled={!minPageNumber}>
+          Previous
+        </button>
+        <p>
+          Pages: {page} - {data.characters.info.pages}
+        </p>
+        <button onClick={onGoNextPage} disabled={!maxPageNumber}>
+          Next
+        </button>
+      </div>
     </div>
   );
 };

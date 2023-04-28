@@ -4,8 +4,9 @@
   max-height: 200px;
   display: flex;
   justify-content: space-between;
+  background-color: #2f3037;
   border-style:solid;
-  border-color: white;
+  border-color: transparent;
   border-width: 1px;
   border-radius: 10px;
 }
@@ -31,12 +32,16 @@
   justify-content: space-evenly;
 }
 
+.infoBox h2 {
+  color: #7EB957;
+}
+
 .basicInfo {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-evenly;
-  width: 50%;
+  justify-content: center;
+  width: 90%;
 }
 
 .basicInfo span{

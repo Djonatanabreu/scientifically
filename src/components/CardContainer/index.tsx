@@ -22,7 +22,7 @@ export const CardContainer = ({
   return (
     <div className={styles.cardContainer}>
       <div className={styles.imageBox}>
-        <img src={image} alt='Qualquer coisa' />
+        <img src={image} alt='Rick and Morty' />
       </div>
       <div className={styles.infoBox}>
         <h2>{name}</h2>
@@ -30,7 +30,7 @@ export const CardContainer = ({
           <Status circleStatus={status}>{species}</Status>
         </div>
         <div className={styles.seenInfo}>
-          <span>Location</span>
+          <span>Location:</span>
           <p>{location}</p>
         </div>
         <div className={styles.seenInfo}>

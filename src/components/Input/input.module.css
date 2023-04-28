@@ -1,0 +1,37 @@
+.inputContainer {
+  display: flex;
+  width: 250px;
+  height: 45px;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: transparent;
+  background-color: #2f3037;
+}
+
+.inputContainer input {
+  width: 90%;
+  height: 100%;
+  background-color: transparent;
+  border-style: none;
+  outline: none;
+  font-size: 16px;
+  color: #B4D5E3;
+}
+
+.inputContainer button {
+  height: 50%;
+  background-color: transparent;
+  outline: none;
+  border-style: none;
+  font-size: 20px;
+  padding: 0;
+  margin: 0;
+}
+
+.inputContainer button:active{
+  color: red;
+}
+
+

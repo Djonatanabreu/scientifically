@@ -6,7 +6,7 @@ export const Input = ({ onClear, ...props }: IInputProps) => {
   return (
     <div className={styles.inputContainer}>
       <input {...props} />
-      <button onClick={onClear}>X</button>
+      <button onClick={onClear}>x</button>
     </div>
   );
 };

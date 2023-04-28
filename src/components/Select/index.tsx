@@ -1,4 +1,6 @@
 import { ISelectProps } from './types';
+import styles from './select.module.css';
+import { ArrowDown } from '../Icons/lib/ArrowDown';
 
 export const Select = ({
   selectValue,
@@ -6,7 +8,7 @@ export const Select = ({
   ...props
 }: ISelectProps) => {
   return (
-    <div>
+    <div className={styles.selectContainer}>
       <select value={selectValue} {...props}>
         {optionsData.map((option) => (
           <option key={option.label + Math.random()} value={option.value}>

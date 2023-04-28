@@ -1,0 +1,21 @@
+.selectContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 80px;
+  height: 45px;
+  border-radius: 5px;
+  background-color: #2f3037;
+}
+
+.selectContainer select {
+  background-color: #2f3037;
+  width: 100%;
+  height: 100%;
+  font-size: 15px;
+  border-color: transparent;
+  border-style: none;
+  outline: none;
+}
+
