@@ -1,4 +1,4 @@
-import { IFormParams } from '../types';
+import { IFormParams } from '../../../pages/Dashboard/types';
 
 export const REQUEST_DASHBOARD_BODY = (page: number, form: IFormParams) => {
   return `query {

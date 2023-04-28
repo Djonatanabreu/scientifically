@@ -6,14 +6,6 @@
   gap: 20px;
 }
 
-.charCardsContainer {
-  width: 85vw;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 30px;
-  justify-items:center;
-  align-items: center;
-}
 
 .searchContainer {
   align-self: flex-end;
@@ -21,26 +13,4 @@
   display: flex;
   align-items: center;
   gap: 10px;
-}
-
-.pageCounterBox {
-  display: flex;
-  justify-content: space-between;
-  width: 85%;
-  color: #B4D5E3;
-}
-
-.pageCounterBox button {
-  width: 100px;
-  color: #B4D5E3;
-  background-color: #2f3037;
-  border-style: solid;
-  border-radius: 10px;
-  border-color: transparent;
-  font-size: 15px;
-}
-
-.pageCounterBox :active {
-  border-color: #48864A;
-  color: #48864A;
 }
