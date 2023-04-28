@@ -38,11 +38,11 @@ export const Dashboard = () => {
   const [page, setPage] = useState(1);
   const [form, setForm] = useState({
     name: '',
-    status: 'all',
+    status: '',
   });
 
   const DASHBOARD_QUERY = `query {
-    characters(page:${page}) {
+    characters(page:${page},  filter:{status: "${form.status}", name: "${form.name}"}) {  
      info {
        pages
      },
@@ -107,12 +107,6 @@ export const Dashboard = () => {
     });
   };
 
-  const filterByName = (filterData: IUpdatedCharacterUnit[], name: string) => {
-    return filterData.filter((character) => {
-      return character.name.toLowerCase().includes(name.toLowerCase());
-    });
-  };
-
   const onSearch = ({
     target: { value },
   }: React.ChangeEvent<HTMLInputElement>) => {
@@ -125,38 +119,19 @@ export const Dashboard = () => {
     setForm({ ...form, status: value });
   };
 
-  const filterByStatus = (
-    filterData: IUpdatedCharacterUnit[],
-    status: string
-  ) => {
-    if (status === 'all') {
-      return filterData;
-    }
-    return filterData.filter((character) => {
-      return character.status === status;
-    });
-  };
-
-  const render = (status: string, name: string) => {
-    const filteredChar = filterByName(updatedData(), name);
-
-    return filterByStatus(filteredChar, status);
-  };
-
-  console.log(render(form.status, form.name));
   return (
     <div className={styles.dashboardContainer}>
       <input value={form.name} onChange={onSearch} />
       <select value={form.status} onChange={onSelect}>
-        <option value='all'>All</option>
+        <option value=''>All</option>
         <option value='Alive'>Alive</option>
         <option value='Dead'>Dead</option>
         <option value='Unknown'>Unknown</option>
       </select>
       <h1>Character List</h1>
       <div className={styles.charCardsContainer}>
-        {render(form.status, form.name).length ? (
-          render(form.status, form.name).map((character, index: number) => {
+        {updatedData().length ? (
+          updatedData().map((character, index: number) => {
             return <CardContainer {...character} key={index} />;
           })
         ) : (
