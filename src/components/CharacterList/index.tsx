@@ -20,11 +20,11 @@ export const CharacterList = ({ form }: ICharacterListProps) => {
     REQUEST_DASHBOARD_BODY(page, form)
   );
 
-  if (!data) {
-    return null;
-  }
   if (loading) {
     return <p>Loading...</p>;
+  }
+  if (!data) {
+    return <p>no Characters found...</p>;
   }
 
   if (error) {
