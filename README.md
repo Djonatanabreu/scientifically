@@ -19,7 +19,7 @@ What things you need to install the software and how to install them:
 
 Clonning and install dependencies of the project:
 
-Run this tree commands lines in your terminal:
+Run this three commands lines in your terminal:
 
 ```prompt
   git clone https://github.com/Djonatanabreu/scientifically.git
