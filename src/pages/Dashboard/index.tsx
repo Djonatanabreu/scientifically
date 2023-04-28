@@ -2,69 +2,27 @@ import { useState } from 'react';
 import { CardContainer } from '../../components/CardContainer';
 import styles from './dashboard.module.css';
 import { useQuery } from 'graphql-hooks';
-
-export type UpdatedCharacterStatus = 'Alive' | 'Dead' | 'Unknown';
-
-interface IDashboardQueryResponse {
-  characters: {
-    info: {
-      pages: number;
-    };
-    results: ICharacterUnit[];
-  };
-}
-
-interface IUpdatedCharacterUnit
-  extends Omit<ICharacterUnit, 'episode' | 'location'> {
-  firstSeenIn: string;
-  location: string;
-}
-
-interface IEpisode {
-  id: string;
-  name: string;
-}
-
-export interface ICharacterUnit {
-  name: string;
-  status: UpdatedCharacterStatus;
-  species: string;
-  location: { name: string };
-  episode: IEpisode[];
-  image: string;
-}
+import { REQUEST_DASHBOARD_BODY } from './queries/dashboardQuery';
+import {
+  IDashboardQueryResponse,
+  IFormParams,
+  IUpdatedCharacterUnit,
+  UpdatedCharacterStatus,
+} from './types';
+import { Select } from '../../components/CardContainer/components/Select';
+import { selectData } from './_helpers/selectData';
+import { Input } from '../../components/CardContainer/components/Input';
 
 export const Dashboard = () => {
   const [page, setPage] = useState(1);
-  const [form, setForm] = useState({
+  const [form, setForm] = useState<IFormParams>({
     name: '',
     status: '',
   });
 
-  const DASHBOARD_QUERY = `query {
-    characters(page:${page},  filter:{status: "${form.status}", name: "${form.name}"}) {  
-     info {
-       pages
-     },
-     results {
-       name,
-       status,
-       species,
-       location {
-         name
-       },
-       image,
-       episode {
-        id, 
-        name
-      }
-     } 
-   }
- }
- `;
-
-  const { loading, error, data } =
-    useQuery<IDashboardQueryResponse>(DASHBOARD_QUERY);
+  const { loading, error, data } = useQuery<IDashboardQueryResponse>(
+    REQUEST_DASHBOARD_BODY(page, form)
+  );
 
   if (loading) {
     return <div>Loading...</div>;
@@ -93,9 +51,13 @@ export const Dashboard = () => {
     }
   };
 
+  const onInputClear = () => {
+    setForm({ ...form, name: '' });
+  };
+
   const updatedData = () => {
-    return data?.characters.results.map((character) => {
-      const copyData: IUpdatedCharacterUnit = {
+    return data.characters.results.map((character) => {
+      const copyCharacterData: IUpdatedCharacterUnit = {
         ...character,
         firstSeenIn: character.episode[0].name,
         status: (character.status.charAt(0).toUpperCase() +
@@ -103,7 +65,7 @@ export const Dashboard = () => {
         location: character.location.name,
       };
 
-      return copyData;
+      return copyCharacterData;
     });
   };
 
@@ -121,14 +83,20 @@ export const Dashboard = () => {
 
   return (
     <div className={styles.dashboardContainer}>
-      <input value={form.name} onChange={onSearch} />
-      <select value={form.status} onChange={onSelect}>
-        <option value=''>All</option>
-        <option value='Alive'>Alive</option>
-        <option value='Dead'>Dead</option>
-        <option value='Unknown'>Unknown</option>
-      </select>
       <h1>Character List</h1>
+      <div className={styles.searchContainer}>
+        <Input
+          type='text'
+          onClear={onInputClear}
+          value={form.name}
+          onChange={onSearch}
+        />
+        <Select
+          optionsData={selectData}
+          selectValue={form.status}
+          onChange={onSelect}
+        />
+      </div>
       <div className={styles.charCardsContainer}>
         {updatedData().length ? (
           updatedData().map((character, index: number) => {

@@ -3,11 +3,8 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import { RouterProvider } from 'react-router-dom';
 import { routers } from './routers/index.tsx';
-import { ClientContext, GraphQLClient } from 'graphql-hooks';
-
-const client = new GraphQLClient({
-  url: 'https://rickandmortyapi.com/graphql',
-});
+import { ClientContext } from 'graphql-hooks';
+import { client } from './lib/gqlClient/index.ts';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>

@@ -1,4 +1,4 @@
-import { UpdatedCharacterStatus } from '../../pages/Dashboard';
+import { UpdatedCharacterStatus } from '../../pages/Dashboard/types';
 import styles from './cardContainer.module.css';
 import { Status } from './components/Status';
 
@@ -22,7 +22,7 @@ export const CardContainer = ({
   return (
     <div className={styles.cardContainer}>
       <div className={styles.imageBox}>
-        <img width={180} src={image} alt='Qualquer coisa' />
+        <img src={image} alt='Qualquer coisa' />
       </div>
       <div className={styles.infoBox}>
         <h2>{name}</h2>

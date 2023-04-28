@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import styles from './status.module.css';
-import { UpdatedCharacterStatus } from '../../../../pages/Dashboard';
+import { UpdatedCharacterStatus } from '../../../../pages/Dashboard/types';
 
 interface IStatusProp {
   children: ReactNode;
