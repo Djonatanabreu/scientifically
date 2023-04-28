@@ -15,10 +15,13 @@
   color: #B4D5E3;
 }
 
-.on {
-  background-color: greenyellow;
+.alive {
+  background-color: rgb(85, 204, 68);
 }
 
-.off {
-  background-color: rgb(134, 134, 134);
+.dead {
+  background-color: rgb(214, 61, 46);
+}
+.unknown {
+  background-color: rgb(158, 158, 158);
 }

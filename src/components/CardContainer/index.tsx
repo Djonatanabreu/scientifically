@@ -1,30 +1,41 @@
+import { UpdatedCharacterStatus } from '../../pages/Dashboard';
 import styles from './cardContainer.module.css';
 import { Status } from './components/Status';
 
-interface ICardContainerProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ICharacterUnit {
   name: string;
+  status: UpdatedCharacterStatus;
+  species: string;
+  location: string;
+  firstSeenIn: string;
+  image: string;
 }
 
-export const CardContainer = ({ name, ...props }: ICardContainerProps) => {
+export const CardContainer = ({
+  name,
+  status,
+  species,
+  location,
+  firstSeenIn,
+  image,
+}: ICharacterUnit) => {
   return (
-    <div className={styles.cardContainer} {...props}>
+    <div className={styles.cardContainer}>
       <div className={styles.imageBox}>
-        <img src='' alt='' />
+        <img width={180} src={image} alt='Qualquer coisa' />
       </div>
       <div className={styles.infoBox}>
         <h2>{name}</h2>
         <div className={styles.basicInfo}>
-          <Status circleStatus={'on'}>Unknown /</Status>
-
-          <span>Species</span>
+          <Status circleStatus={status}>{species}</Status>
         </div>
         <div className={styles.seenInfo}>
-          <span>Last known location</span>
-          <p>Location</p>
+          <span>Location</span>
+          <p>{location}</p>
         </div>
         <div className={styles.seenInfo}>
           <span>first seen in:</span>
-          <p>Location</p>
+          <p>{firstSeenIn}</p>
         </div>
       </div>
     </div>

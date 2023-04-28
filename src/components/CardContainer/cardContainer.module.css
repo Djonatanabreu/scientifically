@@ -7,12 +7,12 @@
   border-style:solid;
 border-color: white;
   border-width: 1px;
+  border-radius: 10px;
 }
 
 
 .imageBox {
   width: 35%;
-  background-color: darkolivegreen;
 }
 
 .infoBox {
